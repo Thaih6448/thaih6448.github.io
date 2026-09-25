@@ -2,7 +2,20 @@
   const pickBtn = document.getElementById("pickBtn");
   const fileInput = document.getElementById("fileInput");
   const statusEl = document.getElementById("status");
-  const thumbsEl = document.getElementById("thumbs");
+  const countEl = document.getElementById("uploadCount");
+
+  const COUNT_KEY = "bw_upload_count";
+
+  function getCount() {
+    return parseInt(localStorage.getItem(COUNT_KEY) || "0", 10);
+  }
+
+  function renderCount(n) {
+    countEl.textContent = n > 0 ? "Your uploads: " + n : "";
+  }
+
+  // Show whatever this device has already uploaded, right away.
+  renderCount(getCount());
 
   pickBtn.addEventListener("click", function () {
     fileInput.click();
@@ -25,15 +38,16 @@
 
     let uploaded = 0;
     let failed = 0;
+    let tooLarge = 0;
+    const maxBytes = MAX_FILE_SIZE_MB * 1024 * 1024;
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
 
-      // Show an instant local preview so guests get feedback right away.
-      const previewUrl = URL.createObjectURL(file);
-      const img = document.createElement("img");
-      img.src = previewUrl;
-      thumbsEl.appendChild(img);
+      if (file.size > maxBytes) {
+        tooLarge++;
+        continue;
+      }
 
       statusEl.textContent = "Uploading photo " + (i + 1) + " of " + files.length + " …";
       statusEl.className = "status";
@@ -56,14 +70,29 @@
       }
     }
 
-    if (failed === 0) {
-      statusEl.textContent = "Thank you! " + uploaded + " photo" + (uploaded === 1 ? "" : "s") + " added. 💛";
-      statusEl.className = "status ok";
-    } else if (uploaded === 0) {
-      statusEl.textContent = "That didn't go through — please check your connection and try again.";
-      statusEl.className = "status err";
+    if (uploaded > 0) {
+      const newTotal = getCount() + uploaded;
+      localStorage.setItem(COUNT_KEY, String(newTotal));
+      renderCount(newTotal);
+    }
+
+    if (failed === 0 && tooLarge === 0) {
+      statusEl.textContent = "";
     } else {
-      statusEl.textContent = uploaded + " photo" + (uploaded === 1 ? "" : "s") + " added, " + failed + " didn't make it. Try again for those.";
+      const parts = [];
+      if (tooLarge > 0) {
+        parts.push(
+          tooLarge + " photo" + (tooLarge === 1 ? " was" : "s were") +
+          " too large (over " + MAX_FILE_SIZE_MB + "MB) and " +
+          (tooLarge === 1 ? "wasn't" : "weren't") + " added."
+        );
+      }
+      if (failed > 0) {
+        parts.push(
+          failed + " photo" + (failed === 1 ? "" : "s") + " didn't make it — try again for those."
+        );
+      }
+      statusEl.textContent = parts.join(" ");
       statusEl.className = "status err";
     }
 
