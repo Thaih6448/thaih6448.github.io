@@ -41,28 +41,17 @@ body {
   overflow: hidden;
 }
 
-/* Floral Overlay Positioning */
-.floral {
-  position: absolute;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0.95;
-  display: block;
-}
-
-/* Top-Right Corner Overlay */
 .floral-top {
   top: -12px;
   right: -12px;
-  width: 160px;
+  width: 150px;
   height: auto;
 }
 
-/* Bottom-Left Corner Overlay */
 .floral-bottom {
   bottom: -12px;
   left: -12px;
-  width: 140px;
+  width: 110px;
   height: auto;
 }
 
@@ -70,12 +59,12 @@ body {
   .floral-top {
     top: -8px;
     right: -8px;
-    width: 120px;
+    width: 110px;
   }
   .floral-bottom {
     bottom: -8px;
     left: -8px;
-    width: 105px;
+    width: 80px;
   }
 }
 
