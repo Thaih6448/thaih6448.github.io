@@ -17,41 +17,42 @@
     </div>
   </div>
 
- <main class="frame">
-  <!-- Floral SVGs placed inside the frame container -->
-  <img src="floral-top.svg" class="floral floral-top" alt="" aria-hidden="true">
-  <img src="floral-bottom.svg" class="floral floral-bottom" alt="" aria-hidden="true">
+  <main class="frame">
+    <!-- Corner Floral SVGs -->
+    <img src="floral-top.svg" class="floral floral-top" alt="" aria-hidden="true">
+    <img src="floral-bottom.svg" class="floral floral-bottom" alt="" aria-hidden="true">
 
-  <p class="names">
-    Brenda
-    <span class="and">and</span>
-    Wayne
-  </p>
-  <p class="subtitle">SHARE YOUR PHOTOS FROM THE DAY</p>
+    <p class="names">
+      Brenda
+      <span class="and">and</span>
+      Wayne
+    </p>
+    <p class="subtitle">SHARE YOUR PHOTOS FROM THE DAY</p>
 
-  <div class="divider" aria-hidden="true">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-      <path d="M11 2C11 2 6 6 6 11C6 16 11 20 11 20C11 20 16 16 16 11C16 6 11 2 11 2Z" stroke="#b8935e" stroke-width="1"/>
-      <path d="M11 2V20" stroke="#b8935e" stroke-width="1"/>
-    </svg>
-  </div>
+    <div class="divider" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C11 2 6 6 6 11C6 16 11 2 11 2Z" stroke="#b8935e" stroke-width="1"/>
+        <path d="M11 2V20" stroke="#b8935e" stroke-width="1"/>
+      </svg>
+    </div>
 
-  <p class="lede">
-    However you captured today — a portrait, a candid, a blurry dance-floor shot —
-    we'd love to see it. Tap below to add your photos, no account needed.
-  </p>
+    <p class="lede">
+      However you captured today — a portrait, a candid, a blurry dance-floor shot —
+      we'd love to see it. Tap below to add your photos, no account needed.
+    </p>
 
-  <div class="actions">
-    <button type="button" class="btn btn-primary" id="pickBtn">Add Your Photos</button>
-  </div>
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="pickBtn">Add Your Photos</button>
+    </div>
 
-  <input type="file" id="fileInput" accept="image/*" multiple capture="environment" style="display:none">
+    <!-- Mobile-compatible input without hard camera lock -->
+    <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
 
-  <p class="status" id="status" aria-live="polite"></p>
-  <p class="upload-count" id="uploadCount"></p>
+    <p class="status" id="status" aria-live="polite"></p>
+    <p class="upload-count" id="uploadCount"></p>
 
-  <footer class="note">With love and gratitude — Brenda &amp; Wayne</footer>
-</main>
+    <footer class="note">With love and gratitude — Brenda &amp; Wayne</footer>
+  </main>
 
   <script src="config.js"></script>
   <script src="gate.js"></script>
