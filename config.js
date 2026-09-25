@@ -12,3 +12,8 @@ const CLOUDINARY_TAG = "brenda-wayne-wedding";
 // The code guests type in before they can see or upload anything.
 // Print this beneath your QR code. Not case sensitive.
 const ACCESS_CODE = "BW2026"; // e.g. "BW2026"
+
+// Cloudinary's free plan rejects any single photo over 10MB. This
+// catches oversized files before attempting the upload, so guests get
+// a clear message instead of a confusing failure.
+const MAX_FILE_SIZE_MB = 10;
