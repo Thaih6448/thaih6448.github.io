@@ -5,61 +5,51 @@
   --forest: #3e4a3b;
   --sage: #7c8763;
   --wine: #6b2a3a;
+  --burgundy: #6B1A2B; /* Primary floral burgundy color */
   --mauve: #a9748a;
   --gold: #b8935e;
   --ink: #2b2b26;
 }
 
-* { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  min-height: 100%;
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'Cormorant Garamond', serif;
+/* Updated to use Burgundy as the primary action color */
+.btn-primary {
+  background: var(--burgundy);
+  color: var(--cream);
 }
 
-body {
-  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
-  display: flex;
-  justify-content: center;
-}
-
-.frame {
-  width: 100%;
-  max-width: 620px;
-  margin: 20px 16px;
-  padding: 44px 28px 56px;
-  border: 1px solid var(--gold);
-  outline: 1px solid var(--gold);
-  outline-offset: -8px;
-  min-height: calc(100vh - 40px);
-  position: relative;
-  overflow: hidden;
-}
-
+/* Floral positioning hugging the frame border */
 .floral {
   position: absolute;
   pointer-events: none;
-  opacity: 0.9;
+  z-index: 2;
+  opacity: 0.95;
 }
+
 .floral-top {
-  top: -4px;
-  right: -4px;
-  width: 128px;
-  height: 128px;
+  top: -14px;
+  right: -14px;
+  width: 175px;
+  height: auto;
 }
+
 .floral-bottom {
-  bottom: -4px;
-  left: -4px;
-  width: 92px;
-  height: 92px;
-  transform: rotate(180deg);
+  bottom: -14px;
+  left: -14px;
+  width: 155px;
+  height: auto;
 }
-@media (max-width: 380px) {
-  .floral-top { width: 96px; height: 96px; }
-  .floral-bottom { width: 72px; height: 72px; }
+
+@media (max-width: 480px) {
+  .floral-top {
+    top: -10px;
+    right: -10px;
+    width: 125px;
+  }
+  .floral-bottom {
+    bottom: -10px;
+    left: -10px;
+    width: 110px;
+  }
 }
 
 .names {
