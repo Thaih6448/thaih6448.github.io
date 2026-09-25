@@ -188,12 +188,12 @@ body {
   min-height: 1.4em;
 }
 
-footer.note {
+/*footer.note {
   text-align: center;
   font-size: 0.95rem;
   color: var(--mauve);
   margin-top: 20px;
-}
+}*/
 
 .back-link {
   display: block;
