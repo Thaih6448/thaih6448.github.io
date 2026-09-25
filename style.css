@@ -5,50 +5,77 @@
   --forest: #3e4a3b;
   --sage: #7c8763;
   --wine: #6b2a3a;
-  --burgundy: #6B1A2B; /* Primary floral burgundy color */
+  --burgundy: #6b1a2b; /* Primary floral burgundy color */
   --mauve: #a9748a;
   --gold: #b8935e;
   --ink: #2b2b26;
 }
 
-/* Updated to use Burgundy as the primary action color */
-.btn-primary {
-  background: var(--burgundy);
-  color: var(--cream);
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
 }
 
-/* Floral positioning hugging the frame border */
+body {
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  max-width: 620px;
+  margin: 20px 16px;
+  padding: 44px 28px 56px;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: -8px;
+  min-height: calc(100vh - 40px);
+  min-height: calc(100dvh - 40px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floral Overlay Positioning */
 .floral {
   position: absolute;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
   opacity: 0.95;
+  display: block;
 }
 
+/* Top-Right Corner Overlay */
 .floral-top {
-  top: -14px;
-  right: -14px;
-  width: 175px;
+  top: -12px;
+  right: -12px;
+  width: 160px;
   height: auto;
 }
 
+/* Bottom-Left Corner Overlay */
 .floral-bottom {
-  bottom: -14px;
-  left: -14px;
-  width: 155px;
+  bottom: -12px;
+  left: -12px;
+  width: 140px;
   height: auto;
 }
 
 @media (max-width: 480px) {
   .floral-top {
-    top: -10px;
-    right: -10px;
-    width: 125px;
+    top: -8px;
+    right: -8px;
+    width: 120px;
   }
   .floral-bottom {
-    bottom: -10px;
-    left: -10px;
-    width: 110px;
+    bottom: -8px;
+    left: -8px;
+    width: 105px;
   }
 }
 
@@ -122,20 +149,22 @@
   border-radius: 2px;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease, background-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.btn:active { opacity: 0.75; }
+.btn:active { opacity: 0.85; }
 
+/* Primary Button - Burgundy Theme Color */
 .btn-primary {
-  background: var(--forest);
+  background-color: var(--burgundy) !important;
   color: var(--cream);
+  border: 1px solid var(--burgundy);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--forest);
-  border-color: var(--forest);
+  color: var(--burgundy);
+  border-color: var(--burgundy);
 }
 
 .status {
@@ -149,7 +178,7 @@
 
 .upload-count {
   text-align: center;
-  color: var(--forest);
+  color: var(--burgundy);
   letter-spacing: 0.05em;
   font-size: 1.1rem;
   margin-top: 18px;
@@ -216,7 +245,7 @@ footer.note {
   margin-bottom: 16px;
 }
 .lock-input:focus {
-  outline: 2px solid var(--forest);
+  outline: 2px solid var(--burgundy);
   outline-offset: 1px;
 }
 .lock-error {
