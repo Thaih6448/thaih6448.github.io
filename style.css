@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&display=swap');
+
+:root {
+  --cream: #f6f1e6;
+  --forest: #3e4a3b;
+  --wine: #6b2a3a;
+  --mauve: #a9748a;
+  --gold: #b8935e;
+  --ink: #2b2b26;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+body {
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  max-width: 620px;
+  margin: 20px 16px;
+  padding: 44px 28px 56px;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: -8px;
+  min-height: calc(100vh - 40px);
+  position: relative;
+}
+
+.names {
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  letter-spacing: 0.04em;
+  color: var(--forest);
+  line-height: 1.15;
+  margin: 8px 0 0;
+}
+
+.and {
+  display: block;
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  color: var(--gold);
+  margin: 2px 0;
+}
+
+.subtitle {
+  text-align: center;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  color: var(--wine);
+  margin: 18px 0 30px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0;
+  color: var(--gold);
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+.divider svg { flex-shrink: 0; }
+
+.lede {
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 auto 34px;
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  padding: 18px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { opacity: 0.75; }
+
+.btn-primary {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--forest);
+  border-color: var(--forest);
+}
+
+.status {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 1.05rem;
+  min-height: 1.4em;
+}
+.status.ok { color: var(--forest); }
+.status.err { color: var(--wine); }
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+}
+.thumbs img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+footer.note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--mauve);
+  margin-top: 40px;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: var(--wine);
+  font-size: 1.05rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .status { transition: opacity 0.15s ease; }
+}
+
+/* Access code lock screen */
+.lock {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px calc(24px + env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) calc(24px + env(safe-area-inset-left, 0px));
+}
+.lock-card {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+.lock-title {
+  font-size: 2rem;
+  color: var(--forest);
+  margin: 0 0 6px;
+}
+.lock-sub {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 0 0 22px;
+  line-height: 1.5;
+}
+.lock-input {
+  width: 100%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  padding: 14px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.lock-input:focus {
+  outline: 2px solid var(--forest);
+  outline-offset: 1px;
+}
+.lock-error {
+  color: var(--wine);
+  font-size: 1rem;
+  min-height: 1.4em;
+  margin-top: 14px;
+}

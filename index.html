@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brenda &amp; Wayne — Share Your Photos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="lock" id="lock">
+    <div class="lock-card">
+      <p class="lock-title">Brenda &amp; Wayne</p>
+      <p class="lock-sub">Enter the code from your invitation card to continue</p>
+      <input type="text" id="lockInput" inputmode="text" autocapitalize="characters" autocomplete="off" class="lock-input" placeholder="Code">
+      <button type="button" id="lockBtn" class="btn btn-primary">Continue</button>
+      <p class="lock-error" id="lockError" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <main class="frame">
+    <p class="names">
+      Brenda
+      <span class="and">and</span>
+      Wayne
+    </p>
+    <p class="subtitle">SHARE YOUR PHOTOS FROM THE DAY</p>
+
+    <div class="divider" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C11 2 6 6 6 11C6 16 11 20 11 20C11 20 16 16 16 11C16 6 11 2 11 2Z" stroke="#b8935e" stroke-width="1"/>
+        <path d="M11 2V20" stroke="#b8935e" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <p class="lede">
+      However you captured today — a portrait, a candid, a blurry dance-floor shot —
+      we'd love to see it. Tap below to add your photos, no account needed.
+    </p>
+
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="pickBtn">Add Your Photos</button>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/*" multiple capture="environment" style="display:none">
+
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="thumbs" id="thumbs"></div>
+
+    <footer class="note">With love and gratitude — Brenda &amp; Wayne</footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="gate.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>
