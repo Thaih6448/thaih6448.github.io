@@ -3,6 +3,7 @@
 :root {
   --cream: #f6f1e6;
   --forest: #3e4a3b;
+  --sage: #7c8763;
   --wine: #6b2a3a;
   --mauve: #a9748a;
   --gold: #b8935e;
@@ -35,6 +36,30 @@ body {
   outline-offset: -8px;
   min-height: calc(100vh - 40px);
   position: relative;
+  overflow: hidden;
+}
+
+.floral {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.floral-top {
+  top: -4px;
+  right: -4px;
+  width: 128px;
+  height: 128px;
+}
+.floral-bottom {
+  bottom: -4px;
+  left: -4px;
+  width: 92px;
+  height: 92px;
+  transform: rotate(180deg);
+}
+@media (max-width: 380px) {
+  .floral-top { width: 96px; height: 96px; }
+  .floral-bottom { width: 72px; height: 72px; }
 }
 
 .names {
@@ -132,17 +157,13 @@ body {
 .status.ok { color: var(--forest); }
 .status.err { color: var(--wine); }
 
-.thumbs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 22px;
-}
-.thumbs img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 2px;
+.upload-count {
+  text-align: center;
+  color: var(--forest);
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  margin-top: 18px;
+  min-height: 1.4em;
 }
 
 footer.note {
